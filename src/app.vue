@@ -3,6 +3,10 @@
 </template>
 
 <script>
+  import './assets/styles/test.css'
+  import './assets/styles/test-stylus.styl'
+  import  './assets/images/bg.jpg'
+
   export default {
     data() {
       return {

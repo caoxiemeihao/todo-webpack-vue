@@ -1,22 +1,38 @@
 const path = require('path')
-const { VueLoaderPlugin } = require('vue-loader')
+const {VueLoaderPlugin} = require('vue-loader')
 
 module.exports = {
   mode: 'development',
   entry: path.join(__dirname, 'src/main.js'),
   output: {
     filename: 'bundle.js',
-     path: path.join(__dirname, 'dist')
+    path: path.join(__dirname, 'dist')
   },
   module: {
     rules: [
       {
-        test: /.vue$/,
+        test: /\.vue$/,
         loader: 'vue-loader'
       },
       {
-        test: /.css$/,
-        loader: 'css-loader'
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']
+      },
+      {
+        test: /\.styl/,
+        use: ['style-loader', 'css-loader', 'stylus-loader']
+      },
+      {
+        test: /\.(gif|jpg|jpeg|png|svg)$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 1024,
+              name: '[name]-asd.[ext]'
+            }
+          }
+        ]
       }
     ]
   },
