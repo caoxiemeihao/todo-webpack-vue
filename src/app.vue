@@ -1,13 +1,19 @@
 <template>
-    $END$
+    <div id="test">{{text}}</div>
 </template>
 
 <script>
-    export default {
-        name: "app"
+  export default {
+    data() {
+      return {
+        text: 'Hello world.'
+      }
     }
+  }
 </script>
 
-<style scoped>
-
+<style>
+    #test {
+        color: #ff6470;
+    }
 </style>

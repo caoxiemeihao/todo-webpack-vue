@@ -11,15 +11,14 @@ log.txt
 *.sublime-workspace
 .vscode
 npm-debug.log*
+package-lock.json
+dist
 node_modules
 
 .idea
-.ionic
 .sourcemaps
 .sass-cache
-.tmp
+.DS_Store
 .svn
 .versions
-.DS_Store
-Thumbs.db
-package-lock.json
+.tmp
