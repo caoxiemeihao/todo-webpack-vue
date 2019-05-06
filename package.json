@@ -10,8 +10,17 @@
   },
   "keywords": [],
   "author": "",
+  "description": "A learning project. based on webpack and vue construction.",
+  "repository": "https://github.com/caoxiemeihao/todo-webpack-vue",
   "license": "ISC",
   "dependencies": {
+    "autoprefixer": "^9.5.1",
+    "babel-core": "^6.26.3",
+    "babel-helper-vue-jsx-merge-props": "^2.0.3",
+    "babel-plugin-transform-vue-jsx": "^3.7.0",
+    "babel-preset-env": "^1.7.0",
+    "bable-loader": "0.0.1-security",
+    "postcss-loader": "^3.0.0",
     "vue": "^2.6.10"
   },
   "devDependencies": {
