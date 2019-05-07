@@ -1,7 +1,7 @@
 {
   "name": "todo-webpack-vue",
   "version": "1.0.0",
-  "description": "",
+  "description": "A learning project. based on webpack and vue construction.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -10,7 +10,6 @@
   },
   "keywords": [],
   "author": "",
-  "description": "A learning project. based on webpack and vue construction.",
   "repository": "https://github.com/caoxiemeihao/todo-webpack-vue",
   "license": "ISC",
   "dependencies": {
