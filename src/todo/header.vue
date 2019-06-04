@@ -10,6 +10,6 @@
     h1
       font-size 100px
       color rgba(175, 47, 47, .4)
-      font-weight 100
+      font-weight 9000
       margin 20px
 </style>
