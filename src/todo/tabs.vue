@@ -36,3 +36,16 @@ export default {
 }
 </script>
 
+<style lang="stylus" scoped>
+.helper
+  display flex
+  padding 9px 0
+
+  > span
+    flex 1
+  span.tabs
+    text-align center
+  span.clear
+    text-align right
+</style>
+

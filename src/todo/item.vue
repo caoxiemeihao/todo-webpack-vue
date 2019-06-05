@@ -25,3 +25,23 @@ export default {
 }
 </script>
 
+<style lang="stylus" scoped>
+.todo-item
+  // text-align left 
+  padding 14px 0
+  border-bottom 1px solid #ccc
+
+  &:after
+    content ""
+    display block
+    clear both
+
+  .toggle
+    float left 
+  label 
+    float left
+    margin-left 9px
+  .destory
+    float right
+</style>
+
