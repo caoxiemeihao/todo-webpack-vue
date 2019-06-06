@@ -6,8 +6,16 @@
       placeholder="接下来要做什么？"
       @keyup.enter="addTodo"
     >
-  <Item :todo="todo"/>
-  <Tabs :filter="filter"/>
+  <Item
+    v-for="todo in filteredTodos"
+    :key="todo.id"
+    :todo="todo"
+    @del="deleteTodo" />
+  <Tabs
+    :filter="filter"
+    :todos="todos"
+    @toggle="toggleFilter"
+    @clearAllCompleted="clearAllCompleted" />
   </section>
 </template>
 
@@ -15,14 +23,12 @@
 import Item from './item.vue'
 import Tabs from './tabs.vue'
 
+let id = 0
+
 export default {
   data() {
     return {
-      todo: {
-        id: 0,
-        content: 'This is todo.',
-        completed: false,
-      },
+      todos: [],
       filter: 'all'
     }
   },
@@ -31,10 +37,33 @@ export default {
     Tabs,
   },
   methods: {
-    addTodo() {
-      
+    addTodo(ev) {
+      this.todos.unshift({
+        id: id++,
+        content: ev.target.value.trim(),
+        completed: false,
+      })
+      ev.target.value = ''
+    },
+    deleteTodo(id) {
+      this.todos.splice(this.todos.findIndex(todo => todo.id === id), 1)
+    },
+    toggleFilter(state) {
+      console.log(this.filter = state)
+    },
+    clearAllCompleted() {
+      this.todos = this.todos.filter(todo => !todo.completed)
     }
-  }
+  },
+  computed: {
+    filteredTodos() {
+      if (this.filter === 'all') {
+        return this.todos
+      }
+
+      return this.todos.filter(todo => todo.completed === (this.filter === 'completed'))
+    }
+  } 
 }
 </script>
 
