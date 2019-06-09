@@ -86,6 +86,10 @@ if (isDev) {
     new webpack.NoEmitOnErrorsPlugin()
   )
 } else {
+  config.entry = {
+    app: path.join(__dirname, 'src/index.js'),
+    vender: ['vue', 'vue-router', 'vuex'],
+  }
   config.output.filename = '[name].[chunkhash:8].js'
   config.module.rules.push({
     test: /\.styl/,
@@ -103,11 +107,17 @@ if (isDev) {
       ]
     })
   })
+  config.optimization.splitChunks
   config.plugins.push(
     // webpack中的hash、chunkhash、contenthash
     // new ExtractPlugin('styles.[contenthash:8].css') // 报错
     // new ExtractPlugin('styles.[chunkhash:8].css')
-    new ExtractPlugin('styles.[hash:8].css')
+    new ExtractPlugin('styles.[hash:8].css'),
+
+    // Error: webpack.optimize.CommonsChunkPlugin has been removed, please use config.optimization.splitChunks instead.
+    // new webpack.optimize.CommonsChunkPlugin({
+    //   name: 'vender'
+    // })
   )
 }
 
